@@ -34,3 +34,11 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+
+          jobs:
+  deploy:
+    # ... other steps
+    - name: Build
+      run: npm run build
+      env: # Add this section
+        VITE_API_KEY: ${{ secrets.VITE_API_KEY }}
