@@ -21,7 +21,7 @@ const weather = () => {
                 params: {
                     q: city,
                     appid: API_KEY,
-                    units: 'metrics'
+                    units: 'metric'
                 }
             });
             setWeather(response.data);
@@ -43,9 +43,13 @@ const weather = () => {
                     value={city}
                     onChange={(e) => setCity(e.target.value)}
                 />
-                <button onClick={fetchWeather} disabled={loading}>
-                    {loading ? 'Searching...' : 'Search'}
-                </button>
+                <div className="search-box">
+
+                    <button onClick={fetchWeather} disabled={loading}>
+                        {loading ? 'Searching...' : 'Search'}
+                    </button>
+                </div>
+
             </div>
 
             {error && <p className="error">{error}</p>}
